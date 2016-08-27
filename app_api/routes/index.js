@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var index = require('../controllers/index.js');
+var index = require('../controllers/app.js');
 
 router.get('/', index.demo);
 
