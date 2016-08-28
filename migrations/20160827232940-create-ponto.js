@@ -17,6 +17,10 @@ module.exports = {
       versao: {
         type: Sequelize.FLOAT
       },
+      estado: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

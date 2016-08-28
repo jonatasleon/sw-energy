@@ -4,6 +4,10 @@ module.exports = function(sequelize, DataTypes) {
     serial: DataTypes.INTEGER,
     placa: DataTypes.STRING,
     versao: DataTypes.FLOAT
+    estado: {
+      type: Sequelize.INTEGER,
+      defaultValue: 0
+    },
   }, {
     classMethods: {
       associate: function(models) {
