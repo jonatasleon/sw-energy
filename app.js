@@ -34,9 +34,10 @@ app.use(require('node-sass-middleware')({
   indentedSyntax: true,
   sourceMap: true
 }));
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use(express.static(path.join(__dirname, 'app_client')));
+
+app.use('/server', routes);
 app.use('/users', users);
 
 app.use('/api', routesApi);

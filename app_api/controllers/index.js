@@ -51,8 +51,6 @@ module.exports.setState = function(req, res, next) {
         return;
       }
 
-      console.log(ponto);
-
       ponto.estado = parseInt(req.body['ESTADO'], 10);
       ponto.save();
       res.json(ponto);
@@ -64,15 +62,13 @@ module.exports.setState = function(req, res, next) {
 // tempo: DataTypes.DATE
 
 module.exports.setLeitura = function(req, res, next) {
-  console.log('query', req.query);
   models.Leitura
     .create({
       corrent: parseFloat(req.query['CORRENTE']),
       tensao: parseFloat(req.query['TENSAO']),
       tempo: Date.now()
     })
-    .then(function(leitura) {
-    });
+    .then(function(leitura) {});
 };
 
 module.exports.getLastLeitura = function(req, res, next) {
@@ -91,4 +87,17 @@ module.exports.getLastLeitura = function(req, res, next) {
 
       res.json(d);
     });
+};
+
+module.exports.tempoAtivo = function(req, res, next) {
+  // models.Leitura
+  //   .findOne({
+  //     attributes: ['tempo'],
+  //     where: {
+  //       $or: [
+  //         {corrent: 0},
+  //
+  //       ]
+  //     }
+  //   })
 };
