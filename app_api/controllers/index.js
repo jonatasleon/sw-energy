@@ -17,3 +17,17 @@ module.exports.addPonto = function(req, res, next) {
     res.json(ponto);
   });
 };
+
+module.exports.getState = function(req, res, next) {
+  models.Ponto
+    .findOne({
+      where: {
+        serial: req.query['SERIAL']
+      }
+    })
+    .then(function(ponto) {
+      if(!ponto)
+        ponto = {estado: 0};
+      res.json(ponto.estado);
+    });
+};
